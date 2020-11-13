@@ -9,6 +9,11 @@ var Util = {
     },
 
     getPostDelimiter: function (value, delimiter, delimiters) {
+        // Bug fix
+        if (value === null || value === undefined) {
+            return '';
+        }
+        
         // single delimiter
         if (delimiters.length === 0) {
             return value.slice(-delimiter.length) === delimiter ? delimiter : '';
